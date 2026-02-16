@@ -17,3 +17,24 @@ class Task {
 }
 
 module.exports = Task;
+// В конструктор после this.createdAt
+this.priority = 'medium';
+
+// Новый метод
+setPriority(priority) {
+    const validPriorities = ['low', 'medium', 'high', 'urgent'];
+    if (validPriorities.includes(priority)) {
+        this.priority = priority;
+        return true;
+    }
+    return false;
+}
+
+// Добавить в module.exports
+setPriority(priority) {
+  const allowed = ["low", "medium", "high"];
+  if (!allowed.includes(priority)) {
+    throw new Error("Invalid priority value");
+  }
+  this.priority = priority;
+}
