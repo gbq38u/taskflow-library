@@ -31,3 +31,10 @@ setPriority(priority) {
 }
 
 // Добавить в module.exports
+setPriority(priority) {
+  const allowed = ["low", "medium", "high"];
+  if (!allowed.includes(priority)) {
+    throw new Error("Invalid priority value");
+  }
+  this.priority = priority;
+}
